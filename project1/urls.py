@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
-# StackOverflow said to add this to fix a static files issue (link in settings.py)
+# This is used to avoid having to run collect static every time a change is made,
+# which isn't necessary out of development (therefore the if statement)
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
