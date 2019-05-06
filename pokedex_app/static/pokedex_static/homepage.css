@@ -1,0 +1,32 @@
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  padding-top:50px;
+}
+
+#center {
+  width: 60%;
+  margin-top: 100px;
+  display: inline-block;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px #888888;
+  text-align: center;
+}
+
+.flex-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.section {
+  width: 30%;
+  padding: 20px;
+}
+
+#bottom {
+  margin-left: 20px;
+  margin-right: 20px;
+}

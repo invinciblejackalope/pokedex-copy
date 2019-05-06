@@ -1,0 +1,66 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'pokedex_static/homepage.css' %}">
+
+<body>
+  <div id="hd">
+    <h1>
+      Max's Pokedex! Now displaying 5 random pokemon below.
+    </h1>
+    <p>
+      To access each pokemon's individual page, go to /pokemon_name. E.g: "/ditto".
+    </p>
+  </div>
+  {% for pokemon in data %}
+  <div id="center">
+    <div class="flex-container">
+      <div class="section">
+        <h1 class="name">
+          {{ pokemon.name|title }}
+        </h1>
+        <img src={{ pokemon.sprites.front_default }}>
+        <img>
+        <div>
+          <p> ID: {{ pokemon.id }} </p>
+        </div>
+      </div>
+      <div class="section">
+        <div>
+          <h4> Stats: </h4>
+          <p>Speed: {{ pokemon.stats.0.base_stat }}</p>
+          <p>Special Defense: {{ pokemon.stats.1.base_stat }}</p>
+          <p>Special Attack: {{ pokemon.stats.2.base_stat }}</p>
+          <p>Defense: {{ pokemon.stats.3.base_stat }}</p>
+          <p>Attack: {{ pokemon.stats.4.base_stat }}</p>
+          <p>HP: {{ pokemon.stats.5.base_stat }}</p>
+        </div>
+      </div>
+      <div class="section">
+        <div>
+          <div>
+            <h4> Type(s): </h4>
+            {% for types in pokemon.types %}
+              <p>{{ types.type.name|title }}</p>
+            {% endfor %}
+          </div>
+          <h4> Weight: </h4>
+          <p> {{ pokemon.weight }} kg </p>
+          <h4> Height: </h4>
+          <p> {{ pokemon.height }} dm </p>
+        </div>
+      </div>
+    </div>
+    <div id="bottom">
+      <div>
+        <h4> Abilities: </h4>
+        <div id="abilities">
+          {% for name, description in pokemon.custom_abilities.items %}
+            <p>{{ name|title }}</p>
+            <p>{{ description }}</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</body>

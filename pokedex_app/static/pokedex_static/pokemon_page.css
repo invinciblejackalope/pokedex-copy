@@ -1,0 +1,37 @@
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+#center {
+  width: 60%;
+  border-color: #FF0000;
+  margin-top: 100px;
+  display: inline-block;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px #888888;
+}
+
+.flex-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.left {
+  width: 30%;
+}
+
+.center {
+  width: 30%;
+}
+
+.right {
+  width: 30%;
+}
+
+#abilities {
+  margin: 10px;
+}
