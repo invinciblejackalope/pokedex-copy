@@ -1,7 +1,13 @@
+<!--The other HTML file, homepage.html, has much more commenting. If it's your
+first time using Django and you want something to follow along with,
+go there. This has much less commenting because it is very similar. Most
+commenting in here focuses on the differences between homepage.html and this file.-->
+
 {% load static %}
-
 <link rel="stylesheet" type="text/css" href="{% static 'pokedex_static/pokemon_page.css' %}">
+<!--Loads a different css file, pokemon_page.css, in the same folder.-->
 
+<!-- No for loop needed here since only displaying one pokemon.-->
 <body>
   <div id="center">
     <div class="flex-container">
@@ -9,7 +15,7 @@
         <h1 class="name">
           {{ data.name|title }}
         </h1>
-        <img src={{ data.sprites.front_default }}>
+        <img src={{data.sprites.front_default}}>
         <img>
         <div>
           <p> ID: {{ data.id }} </p>

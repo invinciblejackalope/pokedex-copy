@@ -1,8 +1,12 @@
 {% load static %}
-
 <link rel="stylesheet" type="text/css" href="{% static 'pokedex_static/homepage.css' %}">
+<!--These two lines of code link the html to the css used to style it. load static
+loads the files from the static folder. The next line is general html, used to link
+an html file to another file. In this case, it links it to our css file, specified
+with href (pokedex_static is the folder inside static where homepage.css is located). -->
 
 <body>
+  <!--Initial part before the actual pokedex entries.-->
   <div id="hd">
     <h1>
       Max's Pokedex! Now displaying 5 random pokemon below.
@@ -11,21 +15,30 @@
       To access each pokemon's individual page, go to /pokemon_name. E.g: "/ditto".
     </p>
   </div>
-  {% for pokemon in data %}
+  <!-- This is how you make a for loop in HTML. It isn't Django exclusive, but
+  it's really useful for going through lists passed to a template.-->
+  {% for pokemon in data %} <!-- Data is what we passed in views. -->
   <div id="center">
     <div class="flex-container">
       <div class="section">
         <h1 class="name">
-          {{ pokemon.name|title }}
+          <!--The {{...}} format is how you specify a variable is passed from Django-->
+          {{ pokemon.name|title }} <!--pokemon.name is an item in the pokemon list-->
+
+          <!--The | symbol is used to make a filter. The title filter used here
+          converts the first letter of each word to capital and the rest to
+          lowercase. Find a full list of filters here:
+          https://docs.djangoproject.com/en/2.2/ref/templates/builtins/-->
+          
         </h1>
-        <img src={{ pokemon.sprites.front_default }}>
+        <img src={{pokemon.sprites.front_default}}> <!--URL of sprites-->
         <img>
         <div>
           <p> ID: {{ pokemon.id }} </p>
         </div>
       </div>
       <div class="section">
-        <div>
+        <div> <!--Prints all of the pokemon's stats-->
           <h4> Stats: </h4>
           <p>Speed: {{ pokemon.stats.0.base_stat }}</p>
           <p>Special Defense: {{ pokemon.stats.1.base_stat }}</p>
@@ -39,9 +52,10 @@
         <div>
           <div>
             <h4> Type(s): </h4>
+            <!--Pokemon can have multiple types, so this iterates through the list of types.-->
             {% for types in pokemon.types %}
               <p>{{ types.type.name|title }}</p>
-            {% endfor %}
+            {% endfor %} <!--This is how you close a for statement in HTML-->
           </div>
           <h4> Weight: </h4>
           <p> {{ pokemon.weight }} kg </p>
