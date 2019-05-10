@@ -16,7 +16,8 @@ with href (pokedex_static is the folder inside static where homepage.css is loca
     </p>
   </div>
   <!-- This is how you make a for loop in the Django templating language. It's really
-  useful for going through lists passed to a template.-->
+  useful for going through lists passed to a template. If you're not using Django,
+  you have to use JavaScript to make a loop in HTML.-->
   {% for pokemon in data %} <!-- Data is what we passed in views. -->
   <div id="center">
     <div class="flex-container">
