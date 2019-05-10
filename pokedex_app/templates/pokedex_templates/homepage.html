@@ -1,8 +1,8 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'pokedex_static/homepage.css' %}">
-<!--These two lines of code link the html to the css used to style it. load static
-loads the files from the static folder. The next line is general html, used to link
-an html file to another file. In this case, it links it to our css file, specified
+<!--These two lines of code link the template to the CSS used to style it. load static
+loads the files from the static folder. The next line is general HTML, used to link
+an HTML file to another file. In this case, it links it to our CSS file, specified
 with href (pokedex_static is the folder inside static where homepage.css is located). -->
 
 <body>
@@ -15,8 +15,8 @@ with href (pokedex_static is the folder inside static where homepage.css is loca
       To access each pokemon's individual page, go to /pokemon_name. E.g: "/ditto".
     </p>
   </div>
-  <!-- This is how you make a for loop in HTML. It isn't Django exclusive, but
-  it's really useful for going through lists passed to a template.-->
+  <!-- This is how you make a for loop in the Django templating language. It's really
+  useful for going through lists passed to a template.-->
   {% for pokemon in data %} <!-- Data is what we passed in views. -->
   <div id="center">
     <div class="flex-container">
@@ -29,7 +29,7 @@ with href (pokedex_static is the folder inside static where homepage.css is loca
           converts the first letter of each word to capital and the rest to
           lowercase. Find a full list of filters here:
           https://docs.djangoproject.com/en/2.2/ref/templates/builtins/-->
-          
+
         </h1>
         <img src={{pokemon.sprites.front_default}}> <!--URL of sprites-->
         <img>
@@ -55,7 +55,7 @@ with href (pokedex_static is the folder inside static where homepage.css is loca
             <!--Pokemon can have multiple types, so this iterates through the list of types.-->
             {% for types in pokemon.types %}
               <p>{{ types.type.name|title }}</p>
-            {% endfor %} <!--This is how you close a for statement in HTML-->
+            {% endfor %} <!--This is how you close a for statement in the Django templating language-->
           </div>
           <h4> Weight: </h4>
           <p> {{ pokemon.weight }} kg </p>
