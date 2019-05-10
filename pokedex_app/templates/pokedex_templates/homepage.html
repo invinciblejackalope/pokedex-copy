@@ -15,8 +15,8 @@ with href (pokedex_static is the folder inside static where homepage.css is loca
       To access each pokemon's individual page, go to /pokemon_name. E.g: "/ditto".
     </p>
   </div>
-  <!-- This is how you make a for loop in HTML. It isn't Django exclusive, but
-  it's really useful for going through lists passed to a template.-->
+  <!-- This is how you make a for loop in HTML with Django. Without Django, you'd
+  have to use Javascript, but Django has this nice tag you can use.-->
   {% for pokemon in data %} <!-- Data is what we passed in views. -->
   <div id="center">
     <div class="flex-container">
@@ -29,7 +29,7 @@ with href (pokedex_static is the folder inside static where homepage.css is loca
           converts the first letter of each word to capital and the rest to
           lowercase. Find a full list of filters here:
           https://docs.djangoproject.com/en/2.2/ref/templates/builtins/-->
-          
+
         </h1>
         <img src={{pokemon.sprites.front_default}}> <!--URL of sprites-->
         <img>

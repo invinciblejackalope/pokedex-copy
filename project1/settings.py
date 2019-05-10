@@ -111,7 +111,7 @@ GRANT ALL PRIVILEGES ON DATABASE database TO databaseuser;
 postgres://databaseuser:password@localhost:5432/database
 > now python manage.py runserver should be good! yay
 '''
-
+'''
 DATABASES = {
     # basically the database we're going to use is determined by the DATABASE_URL
     # environment variable (allows for it to work both locally and on Heroku)
@@ -123,7 +123,7 @@ DATABASES = {
         'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '5432',                      # Set to empty string for default. Not used with sqlite3.
     }
-}
+}'''
 
 # import dj_database_url
 # DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
